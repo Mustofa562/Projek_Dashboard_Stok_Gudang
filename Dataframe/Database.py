@@ -30,3 +30,61 @@ def get_data():
 def Save_excel():
     df.to_excel('Stok Gudang.xlsx',index=False)
     print('File sudah dibuat')
+
+
+# fungsi tambah stok
+def tambah_stok():
+    global df
+
+    while True:
+        print(df['Produk'])
+
+        user = input('pilih salah satu produk yg ingin di tambah stok dg nama barang: ') 
+
+        if user in df['Produk'].values:
+            jumlah = int(input('Masukan jumlah stok yang ingin ditambahkan: '))
+
+            #index produk
+            idx = df.index[df['Produk'] == user][0]
+
+            #update stok
+            df.loc[idx,'Stok']+= jumlah
+            print(f'Stok {user} berhasil ditambahkan')
+        else:
+            print('produk tidak ditemukan')
+
+        exit = input('apakah ingin mengakhiri program (y/n): ')
+        if exit == 'y':
+            print('program selesai')
+            break
+
+#Funsi mengurangi stok
+
+def kurang_stok():
+    global df
+
+    while True:
+
+        print(df['Produk'])
+
+        user = input('pilih salah satu produk yg ingin di kurangi stoknya dg nama barang: ') 
+
+        if user in df['Produk'].values:
+            jumlah = int(input('Masukan angka yang anda ingin kurangi: '))
+
+            #index produk
+            idx = df.index[df['Produk'] == user][0]
+
+            #update stok
+            df.loc[idx,'Stok']-= jumlah
+            print(f'Stok {user} berhasil dikurangkan')
+        else:
+            print('produk tidak ditemukan')
+
+        exit = input('apakah ingin mengakhiri program (y/n): ')
+        if exit == 'y':
+            print('program selesai')
+            break
+
+
+

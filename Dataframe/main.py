@@ -1,4 +1,4 @@
-from Database import get_data,tambah_produk,Save_excel
+from Database import get_data,tambah_produk,Save_excel,tambah_stok,kurang_stok
 from visualisasi import show_bar,show_pie
 
 while True:
@@ -9,7 +9,9 @@ while True:
 3. Grafik Stok
 4. Grafik Pie Nilai
 5. Simpan ke Excel
-6. Keluar
+6. Tambah Stok
+7. Mengurangi stok
+8. Keluar
 """)
     
     pilihan = input('pilih menu: ')
@@ -25,7 +27,11 @@ while True:
     elif pilihan == '5':
         Save_excel()
     elif pilihan == '6':
-        print('Program selesai')
+        tambah_stok()
+    elif pilihan == '7':
+        kurang_stok()
+    elif pilihan == '8':
+        print("Program selesai")
         break
     
     else:
